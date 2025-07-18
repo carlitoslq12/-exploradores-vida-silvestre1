@@ -12,28 +12,57 @@
         <div id="start-screen" class="screen active">
             <h1>🌟 Exploradores de la Vida Silvestre 🌟</h1>
             <div class="emoji-decoration">🦁🌳🐦🌺🐝</div>
-            <p>¡Aprende sobre la naturaleza de manera divertida!</p>
-            <button id="start-btn" class="big-button start-button">¡Jugar! 🎮</button>
+            <p>¡Descubre la increíble biodiversidad de Colombia!</p>
+            
+            <div class="level-selection">
+                <button class="level-btn" data-level="1">
+                    <div class="level-emoji">🧒🐢🌳🦋</div>
+                    <h3>Nivel 1</h3>
+                    <p>Exploradores Pequeños</p>
+                    <small>4-6 años</small>
+                </button>
+                
+                <button class="level-btn" data-level="2">
+                    <div class="level-emoji">🌿🐆🦜🏞️</div>
+                    <h3>Nivel 2</h3>
+                    <p>Guardianes del Bosque</p>
+                    <small>7-10 años</small>
+                </button>
+            </div>
         </div>
 
-        <!-- Pantalla del juego -->
-        <div id="game-screen" class="screen">
+        <!-- Pantalla de selección de juegos -->
+        <div id="game-selection-screen" class="screen">
+            <button id="back-to-levels" class="back-btn">← Volver a niveles</button>
+            <h2 id="level-title">Nivel 1: Exploradores Pequeños</h2>
+            <div id="level-emojis" class="emoji-decoration">🧒🐢🌳🦋</div>
+            <p>Elige tu aventura:</p>
+            <div id="game-selector" class="game-selection">
+                <!-- Los juegos se cargan dinámicamente -->
+            </div>
+        </div>
+
+        <!-- Pantalla del quiz -->
+        <div id="quiz-screen" class="screen">
+            <button id="back-from-quiz" class="back-btn">← Volver</button>
             <div class="progress-bar">
                 <div id="progress" class="progress-fill"></div>
             </div>
             <div class="question-counter">
-                Pregunta <span id="current-question">1</span> de 15
+                Pregunta <span id="current-question">1</span> de <span id="total-questions">15</span>
             </div>
+            <h3 id="game-name">Preguntas sobre Fauna y Flora</h3>
             
             <div class="question-container">
+                <img id="question-image" class="question-image" style="display: none;" alt="Pregunta">
                 <div id="question-emoji" class="question-emoji">🐄</div>
                 <h2 id="question-text">¿Qué animal hace "muu"?</h2>
             </div>
 
             <div class="answers-container">
-                <button class="answer-btn green" data-answer="0">Vaca 🐄</button>
-                <button class="answer-btn yellow" data-answer="1">Perro 🐕</button>
-                <button class="answer-btn blue" data-answer="2">Gato 🐱</button>
+                <button class="answer-btn green">Vaca 🐄</button>
+                <button class="answer-btn yellow">Perro 🐕</button>
+                <button class="answer-btn blue">Gato 🐱</button>
             </div>
 
             <div id="feedback" class="feedback hidden">
@@ -41,16 +70,81 @@
             </div>
         </div>
 
+        <!-- Pantalla de clasificación -->
+        <div id="classification-screen" class="screen">
+            <button id="back-from-classification" class="back-btn">← Volver</button>
+            <div class="progress-bar">
+                <div id="classification-progress" class="progress-fill"></div>
+            </div>
+            <div class="question-counter">
+                Clasificados: <span id="classified-count">0</span> de <span id="total-items">16</span>
+            </div>
+            <h3>🌿 ¿Fauna o Flora?</h3>
+            <p>Arrastra cada elemento a su categoría correcta</p>
+
+            <div class="classification-game">
+                <div class="classification-boxes">
+                    <div id="fauna-box" class="classification-box fauna">
+                        <h4>🐾 Fauna</h4>
+                        <p>Animales</p>
+                    </div>
+                    <div id="flora-box" class="classification-box flora">
+                        <h4>🌱 Flora</h4>
+                        <p>Plantas</p>
+                    </div>
+                </div>
+                
+                <div id="classification-items" class="classification-items">
+                    <!-- Los elementos se cargan dinámicamente -->
+                </div>
+            </div>
+
+            <div id="classification-feedback" class="feedback hidden">
+                <div id="classification-feedback-message"></div>
+            </div>
+        </div>
+
+        <!-- Pantalla de emparejamiento -->
+        <div id="matching-screen" class="screen">
+            <button id="back-from-matching" class="back-btn">← Volver</button>
+            <div class="progress-bar">
+                <div id="matching-progress" class="progress-fill"></div>
+            </div>
+            <div class="question-counter">
+                Emparejados: <span id="matched-count">0</span> de <span id="total-pairs">12</span>
+            </div>
+            <h3>🎯 Empareja Animal con Hábitat</h3>
+            <p>Conecta cada animal con su hábitat natural</p>
+
+            <div class="matching-game">
+                <div id="animals-column" class="matching-column">
+                    <h4>🐾 Animales</h4>
+                </div>
+                <div id="habitats-column" class="matching-column">
+                    <h4>🏞️ Hábitats</h4>
+                </div>
+            </div>
+
+            <div id="matching-feedback" class="feedback hidden">
+                <div id="matching-feedback-message"></div>
+            </div>
+        </div>
+
         <!-- Pantalla final -->
         <div id="end-screen" class="screen">
-            <h1>¡Eres un gran explorador de la naturaleza! 🌍</h1>
+            <h1>¡Felicitaciones, explorador! 🌍</h1>
             <div class="emoji-decoration">🌟⭐✨🎉🏆</div>
             <div id="final-score" class="score"></div>
-            <p>¡Has aprendido mucho sobre la vida silvestre!</p>
-            <button id="play-again-btn" class="big-button start-button">¡Jugar de nuevo! 🔄</button>
+            <div id="level-completion" class="completion-message"></div>
+            <div class="final-buttons">
+                <button id="play-again-btn" class="big-button">¡Jugar de nuevo! 🔄</button>
+                <button id="try-other-level" class="big-button secondary">Probar otro nivel 🎮</button>
+            </div>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="game-data.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
+
