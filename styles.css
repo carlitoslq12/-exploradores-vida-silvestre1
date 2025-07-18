@@ -1,0 +1,261 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  background: linear-gradient(135deg, #87ceeb 0%, #98fb98 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 90%;
+  max-width: 600px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  position: relative;
+}
+
+.screen {
+  padding: 30px;
+  text-align: center;
+  display: none;
+  min-height: 500px;
+}
+
+.screen.active {
+  display: block;
+}
+
+h1 {
+  color: #4caf50;
+  font-size: 2.2em;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  color: #333;
+  font-size: 1.8em;
+  margin-bottom: 30px;
+}
+
+.emoji-decoration {
+  font-size: 2.5em;
+  margin: 20px 0;
+  letter-spacing: 10px;
+}
+
+.big-button {
+  background: linear-gradient(45deg, #4caf50, #66bb6a);
+  color: white;
+  border: none;
+  padding: 20px 40px;
+  font-size: 1.5em;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+  font-family: inherit;
+  font-weight: bold;
+}
+
+.big-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
+}
+
+.big-button:active {
+  transform: translateY(0);
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background: #e0e0e0;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4caf50, #ffd700);
+  width: 0%;
+  transition: width 0.5s ease;
+  border-radius: 5px;
+}
+
+.question-counter {
+  color: #666;
+  font-size: 1.1em;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.question-container {
+  margin-bottom: 40px;
+}
+
+.question-emoji {
+  font-size: 4em;
+  margin-bottom: 20px;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+.answers-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.answer-btn {
+  padding: 20px;
+  font-size: 1.3em;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  font-weight: bold;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.answer-btn.green {
+  background: linear-gradient(45deg, #4caf50, #66bb6a);
+  box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+}
+
+.answer-btn.yellow {
+  background: linear-gradient(45deg, #ffd700, #fff176);
+  box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+  color: #333;
+  text-shadow: none;
+}
+
+.answer-btn.blue {
+  background: linear-gradient(45deg, #87ceeb, #64b5f6);
+  box-shadow: 0 5px 15px rgba(135, 206, 235, 0.3);
+}
+
+.answer-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.answer-btn:active {
+  transform: translateY(0);
+}
+
+.answer-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.feedback {
+  font-size: 1.5em;
+  font-weight: bold;
+  padding: 20px;
+  border-radius: 15px;
+  margin-top: 20px;
+  animation: fadeIn 0.5s ease;
+}
+
+.feedback.hidden {
+  display: none;
+}
+
+.feedback.correct {
+  background: linear-gradient(45deg, #4caf50, #66bb6a);
+  color: white;
+}
+
+.feedback.incorrect {
+  background: linear-gradient(45deg, #ff9800, #ffb74d);
+  color: white;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.score {
+  font-size: 2em;
+  color: #4caf50;
+  margin: 20px 0;
+  font-weight: bold;
+}
+
+.stars {
+  animation: sparkle 1s ease-in-out;
+}
+
+@keyframes sparkle {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .container {
+    width: 95%;
+    margin: 10px;
+  }
+
+  h1 {
+    font-size: 1.8em;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  .answer-btn {
+    font-size: 1.1em;
+    padding: 15px;
+  }
+
+  .question-emoji {
+    font-size: 3em;
+  }
+}

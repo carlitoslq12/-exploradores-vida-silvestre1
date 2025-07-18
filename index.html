@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exploradores de la Vida Silvestre</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Pantalla de inicio -->
+        <div id="start-screen" class="screen active">
+            <h1>🌟 Exploradores de la Vida Silvestre 🌟</h1>
+            <div class="emoji-decoration">🦁🌳🐦🌺🐝</div>
+            <p>¡Aprende sobre la naturaleza de manera divertida!</p>
+            <button id="start-btn" class="big-button start-button">¡Jugar! 🎮</button>
+        </div>
+
+        <!-- Pantalla del juego -->
+        <div id="game-screen" class="screen">
+            <div class="progress-bar">
+                <div id="progress" class="progress-fill"></div>
+            </div>
+            <div class="question-counter">
+                Pregunta <span id="current-question">1</span> de 15
+            </div>
+            
+            <div class="question-container">
+                <div id="question-emoji" class="question-emoji">🐄</div>
+                <h2 id="question-text">¿Qué animal hace "muu"?</h2>
+            </div>
+
+            <div class="answers-container">
+                <button class="answer-btn green" data-answer="0">Vaca 🐄</button>
+                <button class="answer-btn yellow" data-answer="1">Perro 🐕</button>
+                <button class="answer-btn blue" data-answer="2">Gato 🐱</button>
+            </div>
+
+            <div id="feedback" class="feedback hidden">
+                <div id="feedback-message"></div>
+            </div>
+        </div>
+
+        <!-- Pantalla final -->
+        <div id="end-screen" class="screen">
+            <h1>¡Eres un gran explorador de la naturaleza! 🌍</h1>
+            <div class="emoji-decoration">🌟⭐✨🎉🏆</div>
+            <div id="final-score" class="score"></div>
+            <p>¡Has aprendido mucho sobre la vida silvestre!</p>
+            <button id="play-again-btn" class="big-button start-button">¡Jugar de nuevo! 🔄</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
