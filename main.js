@@ -10,7 +10,7 @@ let gameStarted = false
 const gameConfig = {
   1: {
     name: "Nivel 1",
-    emojis: "🌲🐾",
+    emojis: "🌲🐦",
     games: [
       { id: "quiz", name: "Preguntas", description: "Responde preguntas sobre fauna y flora", class: "quiz-btn" },
       {
@@ -29,7 +29,7 @@ const gameConfig = {
   },
   2: {
     name: "Nivel 2",
-    emojis: "🌺🐍",
+    emojis: "🐍🌺",
     games: [
       {
         id: "quiz",
@@ -53,32 +53,32 @@ const gameConfig = {
   },
 }
 
-// Preguntas para el nivel 1
+// Preguntas para nivel 1
 const level1Questions = [
-  { question: "¿Cuál es el animal más grande de Colombia?", answers: ["Oso pardo", "Jirafa", "Elefante"], correct: 0 },
+  { question: "¿Cuál es el animal más grande de Colombia?", answers: ["Tigre", "Elefante", "Jirafa"], correct: 1 },
   {
     question: "¿Cuál es el árbol más alto de Colombia?",
-    answers: ["Palma de cera", "Árbol de caoba", "Árbol de guayacán"],
-    correct: 1,
+    answers: ["Palma de Cera", "Árbol de Caoba", "Árbol de Cedro"],
+    correct: 2,
   },
 ]
 
-// Preguntas para el nivel 2
+// Preguntas para nivel 2
 const level2Questions = [
   { question: "¿Cuál es el insecto más pequeño del mundo?", answers: ["Mosquito", "Mariposa", "Abra"], correct: 2 },
-  { question: "¿Cuál es el pájaro más rápido del mundo?", answers: ["Águila", "Pavo real", "Ánade"], correct: 0 },
+  { question: "¿Cuál es el pájaro más rápido del mundo?", answers: ["Águila", "Pavo Real", "Ánade"], correct: 0 },
 ]
 
-// Elementos para el juego de clasificación en nivel 1
+// Elementos para clasificación en nivel 1
 const level1Classification = [
-  { emoji: "🐶", name: "Perro", type: "fauna" },
-  { emoji: "🌸", name: "Rosa", type: "flora" },
+  { emoji: "🐦", name: "Águila", type: "fauna" },
+  { emoji: "🌺", name: "Rosales", type: "flora" },
 ]
 
-// Pares para el juego de emparejamiento en nivel 2
+// Pares para emparejamiento en nivel 2
 const level2Matching = [
   { animal: "Tigre", habitat: "Selva" },
-  { animal: "Pinguino", habitat: "Antártida" },
+  { animal: "Pavo Real", habitat: "Pradera" },
 ]
 
 // Elementos del DOM
@@ -404,8 +404,8 @@ function initializeMatchingGame() {
   const habitatsColumn = document.getElementById("habitats-column")
 
   // Limpiar columnas
-  animalsColumn.innerHTML = "<h3>🐾 Animales</h3>"
-  habitatsColumn.innerHTML = "<h3>🏞️ Hábitats</h3>"
+  animalsColumn.innerHTML = "<h4>🐾 Animales</h4>"
+  habitatsColumn.innerHTML = "<h4>🏞️ Hábitats</h4>"
 
   // Mezclar arrays
   const animals = pairs.map((pair, index) => ({ ...pair, id: index }))
